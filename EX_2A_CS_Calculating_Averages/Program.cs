@@ -23,6 +23,7 @@ namespace EX_2A_CS_Calculating_Averages
         static void Main(string[] args)
         {
             int entry;
+            /////test 123
 
             Console.WriteLine("***Calculating Averages***");
             Console.WriteLine("");
