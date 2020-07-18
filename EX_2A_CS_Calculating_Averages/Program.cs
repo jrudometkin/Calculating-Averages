@@ -8,6 +8,7 @@ namespace EX_2A_CS_Calculating_Averages
         public static double avg { get; private set; }
         public static string grade { get; private set; }
         public static int userEnteredNumber { get; private set; }
+        public static double[] userEnteredNumbers { get; private set; }
         static void Main(string[] args)
         {
             int entry;
@@ -28,13 +29,13 @@ namespace EX_2A_CS_Calculating_Averages
                     //1. Sum of numbers- Create a console application that will accept ten numbers between 0 and 100, and report their sum.
                     
                     Console.WriteLine($"Enter 10 numbers(hit return after each number)");
-                    total = 0;
+                    double total = 0;
                     for (int i = 0; i < 10; i++)
                     {
                        double nextNumber = Double.Parse(Console.ReadLine());
                        total += nextNumber;
                     }
-                    Console.WriteLine($"\nThe total of those 10 number is {total }");
+                    Console.WriteLine($"\nThe total of those 10 number is {total}");
 
                     break;
 
@@ -82,17 +83,28 @@ namespace EX_2A_CS_Calculating_Averages
                     //a letter grade for the average based on the usual scale.For example, a teacher will input any number test scores, 
                     //and see the average numerical grade and the letter grade.
 
-                    Console.WriteLine($"Enter grades to average, when you are done entering scores, enter \"e\".");
-                    userEnteredNumber = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Enter grades to average, when you are done hit enter twice.");
 
-                    total = 0;
-                    for (int i = 0; i < userEnteredNumber; i++)
-                    {
-                        double nextNumber = Double.Parse(Console.ReadLine());
-                        total += nextNumber;
-                    }
-                    avg = total / userEnteredNumber;
-                    Console.Write(avg);
+                    //input array from user
+
+                   
+                        for (int i = 0; i < userEnteredNumbers.Length; i++)
+                        {
+
+                            userEnteredNumbers[i] = int.Parse(Console.ReadLine());
+                            
+                        {
+
+
+                   
+     
+
+
+
+                    total = Sum(userEnteredNumbers);
+                    avg =  total /  userEnteredNumbers.Length;
+
+                      Console.Write(avg);
                     grade = calculateGrade(avg);
                     Console.WriteLine($" -- {grade} ");
                     break;
@@ -101,8 +113,8 @@ namespace EX_2A_CS_Calculating_Averages
                     Console.WriteLine("Please enter a number between 1 and 4.");
                     break;
             }
-            Console.WriteLine("thanks.");
-            }
+
+        }
 
         private static string calculateGrade(double intGrade)
         {
@@ -129,20 +141,19 @@ namespace EX_2A_CS_Calculating_Averages
                 return "A";
             }
         }
-        //static double avgTenScores()
-        // {
+          private static double Sum(double[] arr)
+        
+        {
+            double accum = 0;
+            
+            foreach (var v in arr)
+            {
+               accum += v;
+           }
+        }
+        
 
     }
-           // static double avgSpecificNumberOfScores()
-           // {
+           
 
-            }
-           // static double avgNonspecificNumberOfScores()
-           // {
-
-           // }
-       // }
-   // }
-//}
-
- 
+}
